@@ -382,6 +382,38 @@
             }
         }
 
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .language-switcher:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            transform: translateY(-2px);
+        }
+
+        .language-flag {
+            font-size: 1.5rem;
+        }
+
+        .language-text {
+            font-size: 0.95rem;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .profile-photo {
@@ -409,17 +441,32 @@
             .project-header {
                 flex-direction: column;
             }
+
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+                padding: 8px 15px;
+            }
+
+            .language-text {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="language-switcher" onclick="toggleLanguage()">
+        <span class="language-flag" id="language-flag">🇧🇷</span>
+        <span class="language-text" id="language-text">PT</span>
+    </div>
     <!-- Hero Section -->
     <section class="hero">
         <canvas id="particles-canvas"></canvas>
         <div class="hero-content">
             <img src="assets/foto-thiago.jpg" alt="Thiago Sotero Do Prado" class="profile-photo">
-            <h1>Thiago Sotero Do Prado</h1>
-            <p class="subtitle">Especialista em RPA, Inteligência Artificial e Desenvolvimento Backend</p>
+            <h1 data-translate="name">Thiago Sotero Do Prado</h1>
+            <p class="subtitle" data-translate="hero-subtitle">Especialista em RPA, Inteligência Artificial e Desenvolvimento Backend</p>
             <div class="contact-info">
                 <div class="contact-item">
                     <span>📱</span>
@@ -431,7 +478,7 @@
                 </div>
                 <div class="contact-item">
                     <span>📍</span>
-                    <span>São Paulo, Brasil</span>
+                    <span data-translate="location">São Paulo, Brasil</span>
                 </div>
             </div>
             <div class="social-links">
@@ -457,8 +504,8 @@
     <!-- Professional Summary -->
     <section>
         <div class="container">
-            <h2 class="section-title">Resumo Profissional</h2>
-            <div class="summary">
+            <h2 class="section-title" data-translate="summary-title">Resumo Profissional</h2>
+            <div class="summary" data-translate="summary-text">
                 Especialista em Desenvolvimento e Automação de Processos com vasta experiência na arquitetura e implementação de soluções complexas para clientes. Foco na entrega de projetos de alto impacto, desde a concepção e levantamento de requisitos até a gestão de equipes, desenvolvimento e implantação em ambientes de nuvem. Sólida vivência em projetos internacionais, aplicando metodologias ágeis como Scrum e melhores práticas para garantir eficiência, escalabilidade e redução de custos operacionais.
             </div>
         </div>
@@ -467,42 +514,42 @@
     <!-- Areas of Expertise -->
     <section style="background: white;">
         <div class="container">
-            <h2 class="section-title">Áreas de Especialização</h2>
+            <h2 class="section-title" data-translate="expertise-title">Áreas de Especialização</h2>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <h3>💻 Desenvolvimento Backend</h3>
+                    <h3 data-translate="skill-backend">💻 Desenvolvimento Backend</h3>
                     <ul>
                         <li>Python & Django</li>
                         <li>Node.js & APIs RESTful</li>
                         <li>.NET & VBS/VBA</li>
-                        <li>Microsserviços</li>
+                        <li data-translate="microservices">Microsserviços</li>
                     </ul>
                 </div>
                 <div class="skill-card">
-                    <h3>🏗️ Arquitetura de Software</h3>
+                    <h3 data-translate="skill-architecture">🏗️ Arquitetura de Software</h3>
                     <ul>
-                        <li>Microsserviços</li>
+                        <li data-translate="microservices">Microsserviços</li>
                         <li>APIs RESTful</li>
-                        <li>Design de Sistemas</li>
-                        <li>Escalabilidade</li>
+                        <li data-translate="system-design">Design de Sistemas</li>
+                        <li data-translate="scalability">Escalabilidade</li>
                     </ul>
                 </div>
                 <div class="skill-card">
-                    <h3>🤖 Inteligência Artificial</h3>
+                    <h3 data-translate="skill-ai">🤖 Inteligência Artificial</h3>
                     <ul>
-                        <li>Fine-Tuning de Modelos</li>
+                        <li data-translate="fine-tuning">Fine-Tuning de Modelos</li>
                         <li>RAG (Retrieval Augmented Generation)</li>
-                        <li>Agentes de IA</li>
+                        <li data-translate="ai-agents">Agentes de IA</li>
                         <li>OpenAI API</li>
                     </ul>
                 </div>
                 <div class="skill-card">
-                    <h3>⚡ Automação de Processos</h3>
+                    <h3 data-translate="skill-automation">⚡ Automação de Processos</h3>
                     <ul>
                         <li>N8N & Make</li>
                         <li>Zapier</li>
                         <li>Power Platform</li>
-                        <li>Workflows Complexos</li>
+                        <li data-translate="complex-workflows">Workflows Complexos</li>
                     </ul>
                 </div>
                 <div class="skill-card">
@@ -511,16 +558,16 @@
                         <li>Microsoft Azure</li>
                         <li>AWS</li>
                         <li>Kubernetes</li>
-                        <li>Migração de Ambientes</li>
+                        <li data-translate="env-migration">Migração de Ambientes</li>
                     </ul>
                 </div>
                 <div class="skill-card">
-                    <h3>🗄️ Administração de Dados</h3>
+                    <h3 data-translate="skill-data">🗄️ Administração de Dados</h3>
                     <ul>
                         <li>PostgreSQL & MySQL</li>
                         <li>MongoDB & Redis</li>
                         <li>Supabase</li>
-                        <li>Modelagem de Dados</li>
+                        <li data-translate="data-modeling">Modelagem de Dados</li>
                     </ul>
                 </div>
             </div>
@@ -530,47 +577,47 @@
     <!-- Projects -->
     <section>
         <div class="container">
-            <h2 class="section-title">Projetos Relevantes</h2>
+            <h2 class="section-title" data-translate="projects-title">Projetos Relevantes</h2>
             <div class="projects-timeline">
                 <div class="project-card">
                     <div class="project-header">
-                        <h3 class="project-title">SC Transportes - Sistema de Gestão Logística Portuária</h3>
+                        <h3 class="project-title" data-translate="project1-title">SC Transportes - Sistema de Gestão Logística Portuária</h3>
                     </div>
-                    <p class="project-description">
+                    <p class="project-description" data-translate="project1-challenge">
                         <strong>Desafio:</strong> Digitalizar e integrar uma operação rústica baseada em planilhas, transformando-a em um fluxo de trabalho digital e automatizado para controle de reabastecimento de navios no Porto de Santos.
                     </p>
-                    <p class="project-description">
+                    <p class="project-description" data-translate="project1-solution">
                         <strong>Solução:</strong> Plataforma centralizada que integrou todos os stakeholders, permitindo atualizações em tempo real, gerenciamento de organograma e automação completa do ciclo operacional e financeiro.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Django</span>
-                        <span class="tech-tag">Automação</span>
-                        <span class="tech-tag">Gestão Logística</span>
+                        <span class="tech-tag" data-translate="automation">Automação</span>
+                        <span class="tech-tag" data-translate="logistics">Gestão Logística</span>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3 class="project-title">Zartte Professional - Sistema de Gestão Logística</h3>
+                        <h3 class="project-title" data-translate="project2-title">Zartte Professional - Sistema de Gestão Logística</h3>
                     </div>
-                    <p class="project-description">
+                    <p class="project-description" data-translate="project2-desc">
                         Desenvolvimento de sistema de gestão logística para distribuidor de grande porte, focado na automação do funil de vendas B2B e B2C. Aplicação web robusta que otimizou a cadeia de distribuição e forneceu ferramentas avançadas para gestão comercial.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Django</span>
                         <span class="tech-tag">B2B/B2C</span>
-                        <span class="tech-tag">Distribuição</span>
+                        <span class="tech-tag" data-translate="distribution">Distribuição</span>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3 class="project-title">Sistema de Automação de Corretagem</h3>
+                        <h3 class="project-title" data-translate="project3-title">Sistema de Automação de Corretagem</h3>
                         <span class="project-date">Mar 2025 - Mai 2025</span>
                     </div>
-                    <p class="project-description">
+                    <p class="project-description" data-translate="project3-desc">
                         Sistema web para automação de cálculos de corretagem, processando dados de compras e vendas de ativos financeiros em tempo real. Integração via API com instituições bancárias, webhooks para notificações e IA multimodal para interpretar solicitações.
                     </p>
                     <div class="project-tech">
@@ -584,10 +631,10 @@
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3 class="project-title">Dashboard para Treinamento de IA</h3>
+                        <h3 class="project-title" data-translate="project4-title">Dashboard para Treinamento de IA</h3>
                         <span class="project-date">Fev 2025 - Mar 2025</span>
                     </div>
-                    <p class="project-description">
+                    <p class="project-description" data-translate="project4-desc">
                         Interface moderna para otimizar o processo de treinamento de modelos de IA. Sistema com métodos avançados de fila para input de dados e IA offline para pré-processar e formatar dados para Fine-Tuning via OpenAI API.
                     </p>
                     <div class="project-tech">
@@ -601,10 +648,10 @@
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3 class="project-title">Agentes de IA e Automação Low-Code</h3>
+                        <h3 class="project-title" data-translate="project5-title">Agentes de IA e Automação Low-Code</h3>
                         <span class="project-date">Abr 2025 - Jul 2025</span>
                     </div>
-                    <p class="project-description">
+                    <p class="project-description" data-translate="project5-desc">
                         Implementação de soluções de automação e IA para diversos clientes de médio porte, incluindo agentes de IA para suporte via WhatsApp com treinamento RAG e chatbots com integração de pagamentos.
                     </p>
                     <div class="project-tech">
@@ -623,14 +670,14 @@
     <!-- Technologies -->
     <section class="tech-section">
         <div class="container">
-            <h2 class="section-title">Tecnologias & Metodologias</h2>
+            <h2 class="section-title" data-translate="tech-title">Tecnologias & Metodologias</h2>
             <div class="tech-categories">
                 <div class="tech-category">
-                    <h3>Linguagens & Frameworks</h3>
+                    <h3 data-translate="languages-frameworks">Linguagens & Frameworks</h3>
                     <p class="tech-list">Python (Django), JavaScript, TypeScript, Node.js, React, .NET, VBS, VBA</p>
                 </div>
                 <div class="tech-category">
-                    <h3>Bancos de Dados</h3>
+                    <h3 data-translate="databases">Bancos de Dados</h3>
                     <p class="tech-list">PostgreSQL, MongoDB, Redis, MySQL, Supabase</p>
                 </div>
                 <div class="tech-category">
@@ -638,15 +685,15 @@
                     <p class="tech-list">Microsoft Azure, AWS, Kubernetes, Git</p>
                 </div>
                 <div class="tech-category">
-                    <h3>IA & Automação</h3>
+                    <h3 data-translate="ai-automation">IA & Automação</h3>
                     <p class="tech-list">OpenAI API, RAG, N8N, Make, Twilio API, Power Platform, EvoAI, CrewAI</p>
                 </div>
                 <div class="tech-category">
-                    <h3>Sistemas & Ferramentas</h3>
+                    <h3 data-translate="systems-tools">Sistemas & Ferramentas</h3>
                     <p class="tech-list">Linux, Windows Server, Active Directory, Visual Studio</p>
                 </div>
                 <div class="tech-category">
-                    <h3>Metodologias</h3>
+                    <h3 data-translate="methodologies">Metodologias</h3>
                     <p class="tech-list">Agile, Scrum, Microsserviços, Clean Code</p>
                 </div>
             </div>
@@ -656,19 +703,19 @@
     <!-- Education & Languages -->
     <section>
         <div class="container">
-            <h2 class="section-title">Formação & Idiomas</h2>
+            <h2 class="section-title" data-translate="education-languages-title">Formação & Idiomas</h2>
             <div class="info-grid">
                 <div class="info-card">
-                    <h3>🎓 Formação Acadêmica</h3>
-                    <p><strong>Ciência da Computação</strong></p>
-                    <p>Centro Universitário União das Américas Unidas</p>
-                    <p style="color: var(--secondary); margin-top: 10px;">Em curso</p>
+                    <h3 data-translate="academic-title">🎓 Formação Acadêmica</h3>
+                    <p><strong data-translate="degree">Ciência da Computação</strong></p>
+                    <p data-translate="university">Centro Universitário União das Américas Unidas</p>
+                    <p style="color: var(--secondary); margin-top: 10px;" data-translate="in-progress">Em curso</p>
                 </div>
                 <div class="info-card">
-                    <h3>🌎 Idiomas</h3>
-                    <p><strong>Português:</strong> Nativo</p>
-                    <p><strong>Inglês:</strong> Avançado</p>
-                    <p style="margin-top: 10px; color: #64748b;">Experiência em projetos internacionais</p>
+                    <h3 data-translate="languages-spoken-title">🌎 Idiomas</h3>
+                    <p data-translate="portuguese-level"><strong>Português:</strong> Nativo</p>
+                    <p data-translate="english-level"><strong>Inglês:</strong> Avançado</p>
+                    <p style="margin-top: 10px; color: #64748b;" data-translate="intl-exp">Experiência em projetos internacionais</p>
                 </div>
             </div>
         </div>
@@ -677,8 +724,8 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Thiago Sotero Do Prado. Todos os direitos reservados.</p>
-            <p style="margin-top: 10px; opacity: 0.8;">Especialista em RPA, IA & Desenvolvimento Backend</p>
+            <p data-translate="copyright">&copy; 2025 Thiago Sotero Do Prado. Todos os direitos reservados.</p>
+            <p style="margin-top: 10px; opacity: 0.8;" data-translate="footer-tagline">Especialista em RPA, IA & Desenvolvimento Backend</p>
         </div>
     </footer>
 
@@ -812,5 +859,6 @@
         init();
         animate();
     </script>
+    <script src="translations.js"></script>
 </body>
 </html>
