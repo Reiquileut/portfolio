@@ -50,7 +50,7 @@ const translations = {
         'portuguese-level': '<strong>Português:</strong> Nativo',
         'english-level': '<strong>Inglês:</strong> Avançado',
         'intl-exp': 'Experiência em projetos internacionais',
-        'copyright': '© 2025 Thiago Sotero Do Prado. Todos os direitos reservados.',
+        'copyright': '© 2026 Thiago Sotero Do Prado. Todos os direitos reservados.',
         'footer-tagline': 'Especialista em RPA, IA & Desenvolvimento Backend'
     },
     en: {
@@ -103,7 +103,7 @@ const translations = {
         'portuguese-level': '<strong>Portuguese:</strong> Native',
         'english-level': '<strong>English:</strong> Advanced',
         'intl-exp': 'Experience in international projects',
-        'copyright': '© 2025 Thiago Sotero Do Prado. All rights reserved.',
+        'copyright': '© 2026 Thiago Sotero Do Prado. All rights reserved.',
         'footer-tagline': 'Specialist in RPA, AI & Backend Development'
     }
 };
