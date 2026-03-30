@@ -387,6 +387,31 @@
             margin-top: 8px;
         }
 
+        /* PGP Section */
+        .pgp-fingerprint {
+            font-family: 'Inter', monospace;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            letter-spacing: 0.04em;
+            word-break: break-all;
+            line-height: 1.6;
+            margin-bottom: 4px;
+        }
+
+        .pgp-detail {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .pgp-links {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 4px;
+        }
+
         /* Footer */
         footer {
             border-top: 1px solid var(--border);
@@ -724,6 +749,34 @@
                     <p data-translate="portuguese-level"><strong>Portugu&ecirc;s:</strong> Nativo</p>
                     <p data-translate="english-level"><strong>Ingl&ecirc;s:</strong> Avan&ccedil;ado</p>
                     <p class="note" data-translate="intl-exp">Experi&ecirc;ncia em projetos internacionais</p>
+                </div>
+            </div>
+        </section>
+        <!-- PGP / GPG -->
+        <section>
+            <h2 class="section-label" data-translate="pgp-title">PGP / GPG</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3 data-translate="pgp-key-details">Detalhes da Chave</h3>
+                    <p class="pgp-detail"><strong>Fingerprint:</strong></p>
+                    <p class="pgp-fingerprint">59CE D56A FEF6 E6EA D1E0 04D1 F1D6 D794 8D97 0E3B</p>
+                    <p class="pgp-detail"><strong data-translate="pgp-algorithm">Algoritmo</strong>: ed25519 / cv25519</p>
+                    <p class="pgp-detail"><strong data-translate="pgp-hardware">Gerada em hardware</strong>: YubiKey 5</p>
+                    <p class="pgp-detail"><strong data-translate="pgp-validity">Validade</strong>: 29/03/2029</p>
+                    <p class="pgp-detail"><strong>Email:</strong> thiagosoteroprado@gmail.com</p>
+                </div>
+                <div class="info-item">
+                    <h3 data-translate="pgp-links-title">Chave P&uacute;blica</h3>
+                    <div class="pgp-links">
+                        <a href="keys/publickey.asc" download class="social-link">
+                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            <span data-translate="pgp-download">Baixar chave p&uacute;blica (.asc)</span>
+                        </a>
+                        <a href="https://keys.openpgp.org/search?q=thiagosoteroprado@gmail.com" target="_blank" rel="noopener" class="social-link">
+                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            <span data-translate="pgp-keyserver">Buscar no keyserver</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
