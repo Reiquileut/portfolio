@@ -237,7 +237,7 @@
             line-height: 1.5;
         }
 
-        /* Projects */
+        /* Projects (legacy classes kept for backwards compatibility) */
         .project {
             padding: 28px 0;
             border-top: 1px solid var(--border);
@@ -296,6 +296,143 @@
             padding: 3px 10px;
             border-radius: 4px;
             line-height: 1.4;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+            margin-top: 8px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 8px;
+            bottom: 8px;
+            width: 1px;
+            background: var(--border);
+        }
+
+        .timeline-year {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin: 32px 0 8px -28px;
+        }
+
+        .timeline-year:first-child {
+            margin-top: 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 14px 0 18px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -28px;
+            top: 22px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 2px solid var(--text-primary);
+            box-sizing: border-box;
+        }
+
+        .timeline-item.is-current::before {
+            background: var(--text-primary);
+        }
+
+        .timeline-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 6px;
+        }
+
+        .timeline-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .timeline-tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 1px 7px;
+            border-radius: 3px;
+            line-height: 1.5;
+        }
+
+        .timeline-tag--client {
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+
+        .timeline-tag--oss {
+            color: var(--text-primary);
+            border: 1px solid var(--text-primary);
+        }
+
+        .timeline-title-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 6px;
+        }
+
+        .timeline-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .timeline-repo-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            padding: 2px 9px;
+            border-radius: 4px;
+            transition: color 0.2s, border-color 0.2s;
+            white-space: nowrap;
+        }
+
+        .timeline-repo-link:hover {
+            color: var(--text-primary);
+            border-color: var(--text-primary);
+        }
+
+        .timeline-desc {
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            margin: 6px 0 0;
+        }
+
+        .timeline-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
         }
 
         /* Technologies */
@@ -521,7 +658,7 @@
             <img src="assets/foto-thiago.jpg" alt="Thiago Sotero Do Prado" class="profile-photo">
             <div class="hero-info">
                 <h1 data-translate="name">Thiago Sotero Do Prado</h1>
-                <p class="subtitle" data-translate="hero-subtitle">Especialista em RPA, Intelig&ecirc;ncia Artificial e Desenvolvimento Backend</p>
+                <p class="subtitle" data-translate="hero-subtitle">AI Engineering, Automa&ccedil;&atilde;o, Backend &amp; PHP</p>
                 <div class="contact-row">
                     <a href="tel:+5511953212795">(11) 95321-2795</a>
                     <span class="separator">/</span>
@@ -613,93 +750,279 @@
             </div>
         </section>
 
-        <!-- Projects -->
+        <!-- Projects Timeline -->
         <section>
-            <h2 class="section-label" data-translate="projects-title">Projetos Relevantes</h2>
+            <h2 class="section-label" data-translate="projects-title">Projetos &amp; Timeline</h2>
 
-            <div class="project">
-                <div class="project-header">
-                    <h3 class="project-title" data-translate="project1-title">SC Transportes - Sistema de Gest&atilde;o Log&iacute;stica Portu&aacute;ria</h3>
-                </div>
-                <p class="project-description" data-translate="project1-challenge">
-                    <strong>Desafio:</strong> Digitalizar e integrar uma opera&ccedil;&atilde;o r&uacute;stica baseada em planilhas, transformando-a em um fluxo de trabalho digital e automatizado para controle de reabastecimento de navios no Porto de Santos.
-                </p>
-                <p class="project-description" data-translate="project1-solution">
-                    <strong>Solu&ccedil;&atilde;o:</strong> Plataforma centralizada que integrou todos os stakeholders, permitindo atualiza&ccedil;&otilde;es em tempo real, gerenciamento de organograma e automa&ccedil;&atilde;o completa do ciclo operacional e financeiro.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Django</span>
-                    <span class="tech-tag" data-translate="automation">Automa&ccedil;&atilde;o</span>
-                    <span class="tech-tag" data-translate="logistics">Gest&atilde;o Log&iacute;stica</span>
-                </div>
-            </div>
+            <div class="timeline">
 
-            <div class="project">
-                <div class="project-header">
-                    <h3 class="project-title" data-translate="project2-title">Zartte Professional - Sistema de Gest&atilde;o Log&iacute;stica</h3>
-                </div>
-                <p class="project-description" data-translate="project2-desc">
-                    Desenvolvimento de sistema de gest&atilde;o log&iacute;stica para distribuidor de grande porte, focado na automa&ccedil;&atilde;o do funil de vendas B2B e B2C. Aplica&ccedil;&atilde;o web robusta que otimizou a cadeia de distribui&ccedil;&atilde;o e forneceu ferramentas avan&ccedil;adas para gest&atilde;o comercial.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Django</span>
-                    <span class="tech-tag">B2B/B2C</span>
-                    <span class="tech-tag" data-translate="distribution">Distribui&ccedil;&atilde;o</span>
-                </div>
-            </div>
+                <div class="timeline-year">2026</div>
 
-            <div class="project">
-                <div class="project-header">
-                    <h3 class="project-title" data-translate="project3-title">Sistema de Automa&ccedil;&atilde;o de Corretagem</h3>
-                    <span class="project-date">Mar 2025 - Mai 2025</span>
+                <div class="timeline-item is-current">
+                    <div class="timeline-meta">
+                        <span class="timeline-date" data-translate="project6-date">Fev 2026 &mdash; presente</span>
+                        <span class="timeline-tag timeline-tag--client" data-translate="tag-client">client</span>
+                    </div>
+                    <div class="timeline-title-row">
+                        <h3 class="timeline-title" data-translate="project6-title">Plataforma de Educa&ccedil;&atilde;o em Trading</h3>
+                    </div>
+                    <p class="timeline-desc" data-translate="project6-desc">
+                        Ecossistema completo para escola de trading: backend FastAPI, automa&ccedil;&atilde;o de pagamentos via Lastlink, atendimento omnichannel com Chatwoot, gest&atilde;o de membros no Discord e integra&ccedil;&atilde;o WhatsApp via Evolution API. PRD t&eacute;cnico completo e 14 tasks de desenvolvimento.
+                    </p>
+                    <div class="timeline-tech">
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Evolution API</span>
+                        <span class="tech-tag">Chatwoot</span>
+                        <span class="tech-tag">Discord</span>
+                        <span class="tech-tag">Lastlink</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
                 </div>
-                <p class="project-description" data-translate="project3-desc">
-                    Sistema web para automa&ccedil;&atilde;o de c&aacute;lculos de corretagem, processando dados de compras e vendas de ativos financeiros em tempo real. Integra&ccedil;&atilde;o via API com institui&ccedil;&otilde;es banc&aacute;rias, webhooks para notifica&ccedil;&otilde;es e IA multimodal para interpretar solicita&ccedil;&otilde;es.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-tag">Django</span>
-                    <span class="tech-tag">N8N</span>
-                    <span class="tech-tag">OpenAI</span>
-                    <span class="tech-tag">IA Multimodal</span>
-                    <span class="tech-tag">APIs</span>
-                </div>
-            </div>
 
-            <div class="project">
-                <div class="project-header">
-                    <h3 class="project-title" data-translate="project4-title">Dashboard para Treinamento de IA</h3>
-                    <span class="project-date">Fev 2025 - Mar 2025</span>
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <span class="timeline-date" data-translate="project7-date">Mar 2026</span>
+                        <span class="timeline-tag timeline-tag--oss" data-translate="tag-oss">open-source</span>
+                    </div>
+                    <div class="timeline-title-row">
+                        <h3 class="timeline-title" data-translate="project7-title">RAG Pipeline em Produ&ccedil;&atilde;o</h3>
+                        <a class="timeline-repo-link" href="https://github.com/Reiquileut/rag-pipeline" target="_blank" rel="noopener">&#x2197; github</a>
+                    </div>
+                    <p class="timeline-desc" data-translate="project7-desc">
+                        Pipeline RAG completo com FastAPI, LangChain e pgvector, com CI/CD configurado. Refer&ecirc;ncia para arquiteturas de Retrieval-Augmented Generation prontas para produ&ccedil;&atilde;o.
+                    </p>
+                    <div class="timeline-tech">
+                        <span class="tech-tag">RAG</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">pgvector</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">CI/CD</span>
+                    </div>
                 </div>
-                <p class="project-description" data-translate="project4-desc">
-                    Interface moderna para otimizar o processo de treinamento de modelos de IA. Sistema com m&eacute;todos avan&ccedil;ados de fila para input de dados e IA offline para pr&eacute;-processar e formatar dados para Fine-Tuning via OpenAI API.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">OpenAI</span>
-                    <span class="tech-tag">Supabase</span>
-                    <span class="tech-tag">Jest</span>
-                </div>
-            </div>
 
-            <div class="project">
-                <div class="project-header">
-                    <h3 class="project-title" data-translate="project5-title">Agentes de IA e Automa&ccedil;&atilde;o Low-Code</h3>
-                    <span class="project-date">Abr 2025 - Jul 2025</span>
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <span class="timeline-date" data-translate="project8-date">Mar 2026</span>
+                        <span class="timeline-tag timeline-tag--oss" data-translate="tag-oss">open-source</span>
+                    </div>
+                    <div class="timeline-title-row">
+                        <h3 class="timeline-title" data-translate="project8-title">Multi-Agent Orchestrator (Supervisor Pattern)</h3>
+                        <a class="timeline-repo-link" href="https://github.com/Reiquileut/multi-agent-orchestrator" target="_blank" rel="noopener">&#x2197; github</a>
+                    </div>
+                    <p class="timeline-desc" data-translate="project8-desc">
+                        Implementa&ccedil;&atilde;o do padr&atilde;o Supervisor com LangGraph para orquestra&ccedil;&atilde;o de m&uacute;ltiplos agentes especializados, coordenados por um supervisor central que delega tarefas conforme o contexto.
+                    </p>
+                    <div class="timeline-tech">
+                        <span class="tech-tag">LangGraph</span>
+                        <span class="tech-tag">Multi-Agent</span>
+                        <span class="tech-tag">Supervisor Pattern</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
                 </div>
-                <p class="project-description" data-translate="project5-desc">
-                    Implementa&ccedil;&atilde;o de solu&ccedil;&otilde;es de automa&ccedil;&atilde;o e IA para diversos clientes de m&eacute;dio porte, incluindo agentes de IA para suporte via WhatsApp com treinamento RAG e chatbots com integra&ccedil;&atilde;o de pagamentos.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-tag">N8N</span>
-                    <span class="tech-tag">Make</span>
-                    <span class="tech-tag">RAG</span>
-                    <span class="tech-tag">Redis</span>
-                    <span class="tech-tag">MongoDB</span>
-                    <span class="tech-tag">Twilio</span>
+
+                <div class="timeline-year">2025</div>
+
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <span class="timeline-date" data-translate="project11-date">Nov 2025 &mdash; Jan 2026</span>
+                        <span class="timeline-tag timeline-tag--client" data-translate="tag-client">client</span>
+                    </div>
+                    <div class="timeline-title-row">
+                        <h3 class="timeline-title" data-translate="project11-title">SaaS para Prop Firm de Trading</h3>
+                    </div>
+                    <p class="timeline-desc" data-translate="project11-desc">
+                        SaaS para gest&atilde;o de mesas propriet&aacute;rias de trading. Frontend em React 18, Vite e TypeScript; backend FastAPI com PostgreSQL; e microsservi&ccedil;o em Python integrando MetaTrader 5 para opera&ccedil;&otilde;es e telemetria.
+                    </p>
+                    <div class="timeline-tech">
+                        <span class="tech-tag">React 18</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">MetaTrader 5</span>
+                    </div>
                 </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <span class="timeline-date" data-translate="project10-date">Nov 2025</span>
+                        <span class="timeline-tag timeline-tag--oss" data-translate="tag-oss">open-source</span>
+                    </div>
+                    <div class="timeline-title-row">
+                        <h3 class="timeline-title" data-translate="project10-title">Vis&atilde;o Computacional &mdash; Matem&aacute;tica para Crian&ccedil;as</h3>
+                        <a class="timeline-repo-link" href="https://github.com/Reiquileut/visao_computacional" target="_blank" rel="noopener">&#x2197; github</a>
+                    </div>
+                    <p class="timeline-desc" data-translate="project10-desc">
+                        Sistema de vis&atilde;o computacional que ensina matem&aacute;tica para crian&ccedil;as atrav&eacute;s de reconhecimento de gestos com webcam. Combina detec&ccedil;&atilde;o de m&atilde;os em tempo real e l&oacute;gica did&aacute;tica para gamificar o aprendizado.
+                    </p>
+                    <div class="timeline-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">MediaPipe</span>
+                        <span class="tech-tag">Edu Tech</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <span class="timeline-date" data-translate="project12-date">Out &mdash; Nov 2025</span>
+                        <span class="timeline-tag timeline-tag--client" data-translate="tag-client">client</span>
+                    </div>
+                    <div class="timeline-title-row">
+                        <h3 class="timeline-title" data-translate="project12-title">Sales Copilot &mdash; Assistente IA em Tempo Real</h3>
+                    </div>
+                    <p class="timeline-desc" data-translate="project12-desc">
+                        Copiloto de IA que ouve chamadas de venda em tempo real e sugere pr&oacute;ximos passos. Stack com Deepgram para speech-to-text, LangGraph para orquestra&ccedil;&atilde;o de agentes, FastAPI no backend e Vue 3 no frontend.
+                    </p>
+                    <div class="timeline-tech">
+                        <span class="tech-tag">LangGraph</span>
+                        <span class="tech-tag">Deepgram</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Vue 3</span>
+                        <span class="tech-tag">Real-time AI</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <span class="timeline-date" data-translate="project13-date">Jul &mdash; Set 2025</span>
+                        <span class="timeline-tag timeline-tag--client" data-translate="tag-client">client</span>
+                    </div>
+                    <div class="timeline-title-row">
+                        <h3 class="timeline-title" data-translate="project13-title">SaaS White-Label para Barbearias</h3>
+                    </div>
+                    <p class="timeline-desc" data-translate="project13-desc">
+                        Plataforma white-label para gest&atilde;o de marca, redes sociais e chatbot de agendamento para barbearias.
+                    </p>
+                    <div class="timeline-tech">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">SaaS</span>
+                        <span class="tech-tag">Multi-tenant</span>
+                        <span class="tech-tag">Chatbot</span>
+                        <span class="tech-tag">Marketing Automation</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <span class="timeline-date" data-translate="project14-date">Mai &mdash; Jul 2025</span>
+                        <span class="timeline-tag timeline-tag--client" data-translate="tag-client">client</span>
+                    </div>
+                    <div class="timeline-title-row">
+                        <h3 class="timeline-title" data-translate="project14-title">Sports Tech &mdash; Plataforma de Futebol Amador</h3>
+                    </div>
+                    <p class="timeline-desc" data-translate="project14-desc">
+                        Plataforma sports tech completa: modelo de dados v3.2 com chaves h&iacute;bridas (BigAutoField + UUID), convites via JWT, interface para &aacute;rbitros, m&oacute;dulo GameOps e sistema de credenciais e badges. Documenta&ccedil;&atilde;o t&eacute;cnica e materiais de Series A.
+                    </p>
+                    <div class="timeline-tech">
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">JWT</span>
+                        <span class="tech-tag">Data Modeling</span>
+                        <span class="tech-tag">Sports Tech</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <span class="timeline-date" data-translate="project5-date">Abr &mdash; Jul 2025</span>
+                        <span class="timeline-tag timeline-tag--client" data-translate="tag-client">client</span>
+                    </div>
+                    <div class="timeline-title-row">
+                        <h3 class="timeline-title" data-translate="project5-title">Agentes de IA e Automa&ccedil;&atilde;o Low-Code</h3>
+                    </div>
+                    <p class="timeline-desc" data-translate="project5-desc">
+                        Implementa&ccedil;&atilde;o de solu&ccedil;&otilde;es de automa&ccedil;&atilde;o e IA para diversos clientes de m&eacute;dio porte, incluindo agentes de IA para suporte via WhatsApp com treinamento RAG e chatbots com integra&ccedil;&atilde;o de pagamentos.
+                    </p>
+                    <div class="timeline-tech">
+                        <span class="tech-tag">N8N</span>
+                        <span class="tech-tag">Make</span>
+                        <span class="tech-tag">RAG</span>
+                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Twilio</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <span class="timeline-date" data-translate="project3-date">Mar &mdash; Mai 2025</span>
+                        <span class="timeline-tag timeline-tag--client" data-translate="tag-client">client</span>
+                    </div>
+                    <div class="timeline-title-row">
+                        <h3 class="timeline-title" data-translate="project3-title">Sistema de Automa&ccedil;&atilde;o de Corretagem</h3>
+                    </div>
+                    <p class="timeline-desc" data-translate="project3-desc">
+                        Sistema web para automa&ccedil;&atilde;o de c&aacute;lculos de corretagem, processando dados de compras e vendas de ativos financeiros em tempo real. Integra&ccedil;&atilde;o via API com institui&ccedil;&otilde;es banc&aacute;rias, webhooks para notifica&ccedil;&otilde;es e IA multimodal para interpretar solicita&ccedil;&otilde;es.
+                    </p>
+                    <div class="timeline-tech">
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">N8N</span>
+                        <span class="tech-tag">OpenAI</span>
+                        <span class="tech-tag">IA Multimodal</span>
+                        <span class="tech-tag">APIs</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <span class="timeline-date" data-translate="project4-date">Fev &mdash; Mar 2025</span>
+                        <span class="timeline-tag timeline-tag--client" data-translate="tag-client">client</span>
+                    </div>
+                    <div class="timeline-title-row">
+                        <h3 class="timeline-title" data-translate="project4-title">Dashboard para Treinamento de IA</h3>
+                    </div>
+                    <p class="timeline-desc" data-translate="project4-desc">
+                        Interface moderna para otimizar o processo de treinamento de modelos de IA. Sistema com m&eacute;todos avan&ccedil;ados de fila para input de dados e IA offline para pr&eacute;-processar e formatar dados para Fine-Tuning via OpenAI API.
+                    </p>
+                    <div class="timeline-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">OpenAI</span>
+                        <span class="tech-tag">Supabase</span>
+                        <span class="tech-tag">Jest</span>
+                    </div>
+                </div>
+
+                <div class="timeline-year" data-translate="year-earlier">Anteriores</div>
+
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <span class="timeline-tag timeline-tag--client" data-translate="tag-client">client</span>
+                    </div>
+                    <div class="timeline-title-row">
+                        <h3 class="timeline-title" data-translate="project1-title">SC Transportes &mdash; Sistema de Gest&atilde;o Log&iacute;stica Portu&aacute;ria</h3>
+                    </div>
+                    <p class="timeline-desc" data-translate="project1-challenge">
+                        <strong>Desafio:</strong> Digitalizar e integrar uma opera&ccedil;&atilde;o r&uacute;stica baseada em planilhas, transformando-a em um fluxo de trabalho digital e automatizado para controle de reabastecimento de navios no Porto de Santos.
+                    </p>
+                    <p class="timeline-desc" data-translate="project1-solution">
+                        <strong>Solu&ccedil;&atilde;o:</strong> Plataforma centralizada que integrou todos os stakeholders, permitindo atualiza&ccedil;&otilde;es em tempo real, gerenciamento de organograma e automa&ccedil;&atilde;o completa do ciclo operacional e financeiro.
+                    </p>
+                    <div class="timeline-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag" data-translate="automation">Automa&ccedil;&atilde;o</span>
+                        <span class="tech-tag" data-translate="logistics">Gest&atilde;o Log&iacute;stica</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <span class="timeline-tag timeline-tag--client" data-translate="tag-client">client</span>
+                    </div>
+                    <div class="timeline-title-row">
+                        <h3 class="timeline-title" data-translate="project2-title">Zartte Professional &mdash; Sistema de Gest&atilde;o Log&iacute;stica</h3>
+                    </div>
+                    <p class="timeline-desc" data-translate="project2-desc">
+                        Desenvolvimento de sistema de gest&atilde;o log&iacute;stica para distribuidor de grande porte, focado na automa&ccedil;&atilde;o do funil de vendas B2B e B2C. Aplica&ccedil;&atilde;o web robusta que otimizou a cadeia de distribui&ccedil;&atilde;o e forneceu ferramentas avan&ccedil;adas para gest&atilde;o comercial.
+                    </p>
+                    <div class="timeline-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">B2B/B2C</span>
+                        <span class="tech-tag" data-translate="distribution">Distribui&ccedil;&atilde;o</span>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -709,7 +1032,7 @@
             <div class="tech-grid">
                 <div class="tech-category">
                     <h3 data-translate="languages-frameworks">Linguagens &amp; Frameworks</h3>
-                    <p class="tech-list">Python (Django), JavaScript, TypeScript, Node.js, React, .NET, VBS, VBA</p>
+                    <p class="tech-list">Python (Django), PHP, JavaScript, TypeScript, Node.js, React, .NET, VBS, VBA</p>
                 </div>
                 <div class="tech-category">
                     <h3 data-translate="databases">Bancos de Dados</h3>
@@ -786,7 +1109,7 @@
     <footer>
         <div class="container">
             <p data-translate="copyright">&copy; 2026 Thiago Sotero Do Prado. Todos os direitos reservados.</p>
-            <p class="tagline" data-translate="footer-tagline">Especialista em RPA, IA &amp; Desenvolvimento Backend</p>
+            <p class="tagline" data-translate="footer-tagline">AI Engineering &middot; Automation &middot; Backend &middot; PHP</p>
         </div>
     </footer>
 
